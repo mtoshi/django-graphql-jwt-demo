@@ -2,6 +2,7 @@
 """config.schema"""
 
 import graphene
+import graphql_jwt
 import users.schema
 
 
@@ -10,7 +11,12 @@ class Query(users.schema.Query, graphene.ObjectType):
 
 
 class Mutation(users.schema.Mutation, graphene.ObjectType):
-    pass
+
+    """Mutation"""
+
+    token_auth = graphql_jwt.ObtainJSONWebToken.Field()
+    verify_token = graphql_jwt.Verify.Field()
+    refresh_token = graphql_jwt.Refresh.Field()
 
 
 schema = graphene.Schema(query=Query, mutation=Mutation)
