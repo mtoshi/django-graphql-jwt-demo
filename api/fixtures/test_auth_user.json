@@ -1,0 +1,74 @@
+[
+{
+    "model": "auth.user",
+    "pk": 9999,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$i2CuVkEFpJkt$CIcQ6Nbhptm8MuT2a6KLVp6XlCg5fq1b2XXnc6oDfcQ=",
+        "last_login": "2020-05-15T05:24:15.198Z",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "email": "admin@example.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2020-05-15T05:23:55.833Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$i2CuVkEFpJkt$CIcQ6Nbhptm8MuT2a6KLVp6XlCg5fq1b2XXnc6oDfcQ=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "test1",
+        "first_name": "",
+        "last_name": "",
+        "email": "test1@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2020-05-15T07:49:28.146Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$i2CuVkEFpJkt$CIcQ6Nbhptm8MuT2a6KLVp6XlCg5fq1b2XXnc6oDfcQ=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "test2",
+        "first_name": "",
+        "last_name": "",
+        "email": "test2@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2020-05-15T12:47:03.356Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$i2CuVkEFpJkt$CIcQ6Nbhptm8MuT2a6KLVp6XlCg5fq1b2XXnc6oDfcQ=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "test3",
+        "first_name": "",
+        "last_name": "",
+        "email": "test3@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2020-05-15T12:47:23.027Z",
+        "groups": [],
+        "user_permissions": []
+    }
+}
+]
