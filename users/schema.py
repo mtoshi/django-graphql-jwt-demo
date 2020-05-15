@@ -41,3 +41,14 @@ class Mutation(graphene.ObjectType):
     """Mutation"""
 
     create_user = CreateUser.Field()
+
+
+class Query(graphene.ObjectType):
+
+    """Query"""
+
+    users = graphene.List(UserType)
+
+    def resolve_users(self, info):
+        """Resolve"""
+        return get_user_model().objects.all()
