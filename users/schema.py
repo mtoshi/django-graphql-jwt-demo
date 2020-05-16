@@ -4,6 +4,7 @@
 from django.contrib.auth import get_user_model
 import graphene
 from graphene_django.types import DjangoObjectType
+from graphql_jwt.decorators import superuser_required
 from graphql_jwt.decorators import login_required
 
 
@@ -21,7 +22,7 @@ class CreateUser(graphene.Mutation):
 
     """UserType"""
 
-    user = graphene.Field(UserType)
+    user = graphene.Field(UserType, token=graphene.String(required=True))
 
     class Arguments:
         """Arguments"""
@@ -29,7 +30,8 @@ class CreateUser(graphene.Mutation):
         password = graphene.String(required=True)
         email = graphene.String(required=True)
 
-    def mutate(self, info, username, password, email):
+    @superuser_required
+    def mutate(self, info, username, password, email, **kwargs):
         """mutate"""
         user = get_user_model()(username=username,
                                 email=email,)
