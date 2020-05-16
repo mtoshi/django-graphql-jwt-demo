@@ -54,7 +54,7 @@ class Query(graphene.ObjectType):
     users = graphene.List(UserType, token=graphene.String(required=True))
     user = graphene.Field(UserType, token=graphene.String(required=True))
 
-    @login_required
+    @superuser_required
     def resolve_users(self, info, **kwargs):
         """Resolve"""
         return get_user_model().objects.all()
