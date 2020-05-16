@@ -13,6 +13,7 @@ class UserType(DjangoObjectType):
     class Meta:
         """Meta"""
         model = get_user_model()
+        exclude = ('password',)
 
 
 class CreateUser(graphene.Mutation):
@@ -51,4 +52,6 @@ class Query(graphene.ObjectType):
 
     def resolve_users(self, info):
         """Resolve"""
-        return get_user_model().objects.all()
+        if info.context.user.is_authenticated:
+            return get_user_model().objects.all()
+        return get_user_model().objects.none()
