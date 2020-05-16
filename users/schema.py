@@ -49,15 +49,15 @@ class Query(graphene.ObjectType):
 
     """Query"""
 
-    users = graphene.List(UserType)
-    user = graphene.Field(UserType)
+    users = graphene.List(UserType, token=graphene.String(required=True))
+    user = graphene.Field(UserType, token=graphene.String(required=True))
 
     @login_required
-    def resolve_users(self, info):
+    def resolve_users(self, info, **kwargs):
         """Resolve"""
         return get_user_model().objects.all()
 
     @login_required
-    def resolve_user(self, info):
+    def resolve_user(self, info, **kwargs):
         """Resolve"""
         return info.context.user
