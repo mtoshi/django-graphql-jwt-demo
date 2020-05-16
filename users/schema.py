@@ -4,6 +4,7 @@
 from django.contrib.auth import get_user_model
 import graphene
 from graphene_django.types import DjangoObjectType
+from graphql_jwt.decorators import login_required
 
 
 class UserType(DjangoObjectType):
@@ -50,8 +51,7 @@ class Query(graphene.ObjectType):
 
     users = graphene.List(UserType)
 
+    @login_required
     def resolve_users(self, info):
         """Resolve"""
-        if info.context.user.is_authenticated:
-            return get_user_model().objects.all()
-        return get_user_model().objects.none()
+        return get_user_model().objects.all()
