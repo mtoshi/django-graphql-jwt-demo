@@ -50,8 +50,14 @@ class Query(graphene.ObjectType):
     """Query"""
 
     users = graphene.List(UserType)
+    user = graphene.Field(UserType)
 
     @login_required
     def resolve_users(self, info):
         """Resolve"""
         return get_user_model().objects.all()
+
+    @login_required
+    def resolve_user(self, info):
+        """Resolve"""
+        return info.context.user
