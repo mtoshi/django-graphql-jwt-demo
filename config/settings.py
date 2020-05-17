@@ -8,6 +8,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
+from datetime import timedelta
 import os
 import environ
 
@@ -66,7 +67,19 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 GRAPHQL_JWT = {
+    'JWT_VERIFY_EXPIRATION': True,
+    'JWT_EXPIRATION_DELTA': timedelta(minutes=60),
+    'JWT_AUTH_HEADER_NAME': 'HTTP_AUTHORIZATION',
+    'JWT_AUTH_HEADER_PREFIX': 'JWT',
     'JWT_ALLOW_ARGUMENT': True,
+    'JWT_ARGUMENT_NAME': 'token',
+    'JWT_COOKIE_NAME': 'JWT',
+    'JWT_REFRESH_TOKEN_COOKIE_NAME': 'JWT-refresh-token',
+    'JWT_COOKIE_SECURE': False,
+    'JWT_COOKIE_PATH': '/',
+    'JWT_COOKIE_DOMAIN': None,
+    'JWT_HIDE_TOKEN_FIELDS': False,
+    'JWT_CSRF_ROTATION': False,
 }
 
 ROOT_URLCONF = 'config.urls'
