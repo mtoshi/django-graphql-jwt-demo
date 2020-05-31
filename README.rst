@@ -12,7 +12,7 @@ Installation
 .. code::
 
     $ python3.7 -m venv /tmp/django-graphql-jwt-demo && source /tmp/django-graphql-jwt-demo/bin/activate
-    $ git clone git@gitlab.com:mtoshi/django-graphql-jwt-demo.git
+    $ git clone git@github.com:mtoshi/django-graphql-jwt-demo.git
     $ cd django-graphql-jwt-demo
     $ pip install setuptools --upgrade && pip install pip --upgrade
     $ pip install -r requirements.txt
