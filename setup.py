@@ -11,7 +11,7 @@ with open('requirements.txt', 'w') as _file:
 
 setup(
     name='django-graphql-jwt-demo',
-    version='0.0.1',
+    version='0.0.2',
     url='https://github.com/mtoshi/django-graphql-jwt-demo',
     author='mtoshi',
     author_email='mtoshi@outlook.com',

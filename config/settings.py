@@ -13,7 +13,7 @@ import os
 import environ
 
 
-env = environ.Env(DEBUG=(bool, False))
+env = environ.Env()
 env.read_env(env.str('ENV_PATH', '.env'))
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -24,12 +24,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = env.str('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env('DEBUG')
+DEBUG = env.bool('DEBUG', default=False)
 
-ALLOWED_HOSTS = env('ALLOWED_HOSTS')
+ALLOWED_HOSTS = env.tuple('ALLOWED_HOSTS')
 
 # Application definition
 
@@ -136,9 +136,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = env('LANGUAGE_CODE')
+LANGUAGE_CODE = env.str('LANGUAGE_CODE')
 
-TIME_ZONE = env('TIME_ZONE')
+TIME_ZONE = env.str('TIME_ZONE')
 
 USE_I18N = True
 
